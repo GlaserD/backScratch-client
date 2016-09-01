@@ -1,18 +1,24 @@
 /* @flow */
 
 import React, { Component } from 'react'
-import { Platform } from 'react-native'
+import { Text, TouchableOpacity, Platform } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import Container from '@components/Container'
 import Title from '@components/Title'
-import Link from '@components/Link'
+
+import styles from './styles'
 
 class LauchContainer extends Component<void, void, void> {
   render() {
     return (
       <Container>
-        <Title>Hello there 😃 !</Title>
-        <Link onPress={Actions.counter}>Go to counter</Link>
+        <Title>backScratch</Title>
+        <TouchableOpacity onPress={Actions.taskManager} style={styles.container}>
+          <Text style={styles.text}>Log In</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={Actions.profile} style={styles.container}>
+          <Text style={styles.text}>Sign Up</Text>
+        </TouchableOpacity>
       </Container>
     )
   }
