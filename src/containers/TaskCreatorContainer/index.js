@@ -1,10 +1,16 @@
 /* @flow */
 
 import React, { Component } from 'react'
-import { TouchableOpacity, Text, View, ScrollView } from 'react-native'
-import { Form,
-  Separator,InputField, LinkField,
-  SwitchField, PickerField,DatePickerField,TimePickerField
+import { TouchableOpacity, Text, View, ScrollView, AlertIOS } from 'react-native'
+import { 
+  Form,
+  Separator,
+  InputField, 
+  LinkField,
+  SwitchField, 
+  PickerField,
+  DatePickerField,
+  TimePickerField
 } from 'react-native-form-generator';
 import { Actions } from 'react-native-router-flux'
 import Container from '@components/Container'
@@ -35,18 +41,30 @@ class TaskManagerContainer extends Component<void, void, void> {
     this.setState({formData:formData})
     this.props.onFormChange && this.props.onFormChange(formData);
   }
+
   handleFormFocus(e, component){
     //console.log(e, component);
   }
 
+  onSubmit(){
+    fetch("http://SOMETHING", {"method": "POST", body: JSON.stringify(this.state.formData)})
+    .then((response) => response.json())
+    .then((responseData) => {
+      AlertIOS.alert(
+        "POST RESPONSE",
+        "Response Body ->" + JSON.stringify(responseData.body)
+      );
+    })
+    .done();
+  }
+
   render() {
-    return (<ScrollView keyboardShouldPersistTaps={true} style={{paddingLeft:10,paddingRight:10, marginTop:60, height:200}}>
+    return (<ScrollView keyboardShouldPersistTaps={true} style={{paddingLeft:10,paddingRight:10, marginTop:70, height:200}}>
       <Form
         ref='taskForm'
         onFocus={this.handleFormFocus.bind(this)}
         onChange={this.handleFormChange.bind(this)}
         >
-        <Separator />
         <InputField 
           style={styles.input}
           ref='taskName' 
@@ -76,9 +94,9 @@ class TaskManagerContainer extends Component<void, void, void> {
           label='Difficulty Level'
           options={{
             "": '',
-            easy: 'Easy',
-            medium: 'Medium',
-            hard: 'Hard',
+            1: 'Easy',
+            2: 'Medium',
+            3: 'Hard',
           }}
           helpText="Choose the difficulty level that best fits your task. Remember, the more difficult the task is the more coins it will cost. But be honest! No one will want to do a task for you if it is ranked easier than it actually is."
           />
@@ -93,7 +111,7 @@ class TaskManagerContainer extends Component<void, void, void> {
           maximumDate={new Date()} mode="datetime" placeholder='Start Time'/>
         </Form>
         <Text>{JSON.stringify(this.state.formData)}</Text>
-        <TouchableOpacity onPress={Actions.taskList} style={styles.container}>
+        <TouchableOpacity onPress={this.onSubmit.bind(this)} style={styles.button}>
           <Text style={styles.text}>Add this task!</Text>
         </TouchableOpacity>
       </ScrollView>);

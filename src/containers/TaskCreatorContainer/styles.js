@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgb(213, 213, 213)',
   },
+  button: {
+    paddingLeft: 4,
+    paddingRight: 4,
+    marginBottom: 10,
+    backgroundColor: 'lightgreen',
+    borderWidth: 1,
+    borderColor: 'rgb(213, 213, 213)',
+  },
   text: {
     fontSize: 15,
     textAlign: 'center',
