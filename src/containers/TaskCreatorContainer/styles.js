@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   input: {
     opacity: 100,
-  }
+  },
 })
 
 export default styles

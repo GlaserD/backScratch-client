@@ -15,7 +15,7 @@ const Link = (props: Props) => {
     <TouchableOpacity onPress={() => onPress()}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
-  );
+  )
 }
 
 export default Link

@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
   },
   listView: {
     top: 60,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   loading: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   container: {
     flex: 1,
@@ -30,27 +30,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-    padding: 10
+    padding: 10,
   },
   sperator: {
     height: 5,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   thumbnail: {
     width: 53,
     height: 81,
-    marginRight: 10
+    marginRight: 10,
   },
   rightContainer: {
-    flex: 1
+    flex: 1,
   },
   title: {
     fontSize: 20,
-    marginBottom: 8
+    marginBottom: 8,
   },
   author: {
-    color: '#656565'
-  }
+    color: '#656565',
+  },
 })
 
 export default styles

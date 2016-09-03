@@ -1,20 +1,19 @@
 /* @flow */
 
 import React from 'react'
-import {TabBarIOS, View, Text} from 'react-native'
+import { TabBarIOS } from 'react-native'
 
 import Featured from './Featured.js'
 import Search from './Search.js'
 
-import styles from'./styles'
 
 class TabBar extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      selectedTab: 'featured'
-    };
+      selectedTab: 'featured',
+    }
   }
 
   render() {
@@ -26,10 +25,11 @@ class TabBar extends React.Component {
           selected={this.state.selectedTab === 'featured'}
           onPress={() => {
             this.setState({
-              selectedTab: 'featured'
-            });
-          }}>
-          <Featured/>
+              selectedTab: 'featured',
+            })
+          }}
+        >
+          <Featured />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Search"
@@ -37,14 +37,15 @@ class TabBar extends React.Component {
           systemIcon="search"
           onPress={() => {
             this.setState({
-              selectedTab: 'search'
-            });
-          }}>
-        <Search/>
-      </TabBarIOS.Item>
-    </TabBarIOS>
-    );
+              selectedTab: 'search',
+            })
+          }}
+        >
+          <Search />
+        </TabBarIOS.Item>
+      </TabBarIOS>
+    )
   }
 }
 
-module.exports = TabBar;
+module.exports = TabBar
