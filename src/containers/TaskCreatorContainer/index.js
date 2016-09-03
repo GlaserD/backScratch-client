@@ -77,8 +77,8 @@ class TaskManagerContainer extends Component<void, void, void> {
             multiline={true}
             ref="desc"
             placeholder="Task Description"
-            helpText="Add a short descripition of what the task will entail.
-            Be straightforward so other users can see if they can help!"
+            helpText={`Add a short descripition of what the task will entail.
+            Be straightforward so other users can see if they can help!`}
           />
           <PickerField
             ref="type"
@@ -103,10 +103,10 @@ class TaskManagerContainer extends Component<void, void, void> {
               2: 'Medium',
               3: 'Hard',
             }}
-            helpText="Choose the difficulty level that best fits your task.
+            helpText={`Choose the difficulty level that best fits your task.
             Remember, the more difficult the task is the more coins it will cost.
             But be honest! No one will want to do a task for you
-            if it is ranked easier than it actually is."
+            if it is ranked easier than it actually is.`}
           />
           <Separator />
           <InputField
